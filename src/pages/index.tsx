@@ -30,7 +30,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
-      <div className="text-2xl text-center">Which Pokemon is rounder?</div>
+      <div className="text-2xl text-center">Which Pokémon is rounder?</div>
       <div className="p-2" />
       <div className="border rounded p-8 flex justify-between items-center max-w-2xl">
         <div className="w-64 h-64 flex flex-col items-center">
