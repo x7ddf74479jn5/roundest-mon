@@ -33,11 +33,22 @@ type PokemonListingProps = {
   pokemon: PokemonQueryResult[number];
 };
 
-const PokemonListing: React.FC<PokemonListingProps> = (props) => {
+const PokemonListing: React.FC<PokemonListingProps> = ({ pokemon }) => {
+  const generateCountPercent = (pokemon: PokemonQueryResult[number]) => {
+    const { VoteAgainst, VoteFor } = pokemon._count;
+
+    if (VoteFor === 0 && VoteAgainst === 0) return 0;
+
+    return (VoteFor / (VoteFor + VoteAgainst)) * 100;
+  };
+
   return (
-    <div className="flex border-b p-4 items-center">
-      <Image src={props.pokemon.spriteUrl} alt={props.pokemon.name} width={64} height={64} layout="fixed" />
-      <div className="capitalize">{props.pokemon.name}</div>
+    <div className="flex border-b p-4 items-center justify-between">
+      <div className="flex items-center">
+        <Image src={pokemon.spriteUrl} alt={pokemon.name} width={64} height={64} layout="fixed" />
+        <div className="capitalize">{pokemon.name}</div>
+      </div>
+      <div className="pr-4">{generateCountPercent(pokemon) + "%"}</div>
     </div>
   );
 };
