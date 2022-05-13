@@ -14,7 +14,7 @@ yarn dev
 
 ## TODO
 
-- [] Use next/image handle image caching and better rendering
-  - [] Maybe move images to bulbapedhia
-- [] Persist data and fetch PokemonAPI
-- [] Creating the results page with counting/sorting
+- [x] Use next/image handle image caching and better rendering
+- [x] Persist data and fetch PokemonAPI
+- [x] Creating the results page with counting/sorting
+- [ ] Better loading state between votes
