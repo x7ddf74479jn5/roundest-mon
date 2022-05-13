@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { NextPage } from "next";
 import { useState } from "react";
 
@@ -50,6 +51,10 @@ const Home: NextPage = () => {
       </div>
       <div className="absolute bottom-0 w-full text-xl text-center pb-2">
         <a href="https://github.com/x7ddf74479jn5/roundest-mon">GitHub</a>
+        {" | "}
+        <Link href="/results">
+          <a>Results</a>
+        </Link>
       </div>
     </div>
   );
