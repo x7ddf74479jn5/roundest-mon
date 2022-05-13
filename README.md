@@ -11,10 +11,3 @@ npm run dev
 # or
 yarn dev
 ```
-
-## TODO
-
-- [x] Use next/image handle image caching and better rendering
-- [x] Persist data and fetch PokemonAPI
-- [x] Creating the results page with counting/sorting
-- [ ] Better loading state between votes
