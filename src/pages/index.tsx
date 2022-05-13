@@ -35,21 +35,21 @@ const Home: NextPage = () => {
     updateIds(getOptionsForVote());
   };
 
+  const isLoaded = !firstPokemon.isLoading && firstPokemon.data && !secondPokemon.isLoading && secondPokemon.data;
+
   return (
-    <div className="h-screen w-screen flex flex-col relative justify-center items-center">
-      <div className="text-2xl text-center">Which Pokémon is rounder?</div>
-      <div className="p-2" />
-      <div className="border rounded p-8 flex justify-between items-center max-w-2xl">
-        {!firstPokemon.isLoading && firstPokemon.data && !secondPokemon.isLoading && secondPokemon.data && (
-          <>
-            <PokemonListing pokemon={firstPokemon.data} vote={() => voteForRoundest(first)} />
-            <div className="p-8">Vs</div>
-            <PokemonListing pokemon={secondPokemon.data} vote={() => voteForRoundest(second)} />
-          </>
-        )}
-        <div className="p-2" />
-      </div>
-      <div className="absolute bottom-0 w-full text-xl text-center pb-2">
+    <div className="h-screen w-screen flex flex-col relative justify-between items-center">
+      <div className="text-2xl text-center pt-8">Which Pokémon is rounder?</div>
+      {isLoaded && (
+        <div className="border rounded p-8 flex justify-between items-center max-w-2xl">
+          <PokemonListing pokemon={firstPokemon.data} vote={() => voteForRoundest(first)} />
+          <div className="p-8">Vs</div>
+          <PokemonListing pokemon={secondPokemon.data} vote={() => voteForRoundest(second)} />
+          <div className="p-2" />
+        </div>
+      )}
+      {!isLoaded && <img src="/rings.svg" className="w-48" />}
+      <div className="w-full text-xl text-center pb-2">
         <a href="https://github.com/x7ddf74479jn5/roundest-mon">GitHub</a>
         {" | "}
         <Link href="/results">
